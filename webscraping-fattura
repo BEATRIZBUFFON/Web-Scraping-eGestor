@@ -1,0 +1,55 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import pandas as pd
+
+# inicializa o driver do Selenium 
+driver = webdriver.Chrome()
+
+# abre a página do rdstation
+driver.get('http://zipline.fattura.com.br/corrida/')
+
+user_input = driver.find_element(by='xpath', value='//*[@id="loginfat"]')
+user_input.send_keys('nomedeusuario')
+
+# encontra a partir do inspecionar o local da senha e add a senha
+password_input = driver.find_element(by='xpath', value='//*[@id="senhafat"]')
+password_input.send_keys('suasenha')
+
+
+# encontra o botão de 'enter' para acessar e clica
+avancar_button = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, '//*[@id="botaoentrar"]'))
+)
+avancar_button.click()
+
+
+# espera o redirecionamento e obtém a URL atual
+WebDriverWait(driver, 10).until(EC.url_changes(driver.current_url))
+current_url = driver.current_url
+
+# verifica se a URL atual é a página inicial
+if current_url == 'https://zipline.fattura.com.br/inicio/':
+    # Redireciona manualmente para a URL desejada
+    driver.get('http://zipline.fattura.com.br/corrida/')  # Insira a URL desejada aqui
+
+avancar_button = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, '/html/body/a'))
+)
+avancar_button.click()
+
+
+# percorre elementos que possuem o XPATH passado e encontra os alementos
+elements = WebDriverWait(driver, 20).until(
+    EC.presence_of_all_elements_located((By.XPATH, '/html/body/table[2]/tbody'))
+)
+
+# cria uma lista vazia
+fattura = []
+# para cada elemento que percorre elements ele add na lista vazia com o 'append'
+for element in elements:
+    numero = element.text
+    fattura.append(numero)
+    print(fattura)
