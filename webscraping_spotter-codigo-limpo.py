@@ -1,11 +1,11 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
-import pandas as pd
-import re
+from selenium import webdriver 
+from selenium.webdriver.common.keys import Keys #chaves
+from selenium.webdriver.common.by import By #encontrar algo na página html
+from selenium.webdriver.support.ui import WebDriverWait 
+from selenium.webdriver.support import expected_conditions as EC #ExpectedCondition
+# aguardar a ocorrência em determinada condição antes de prosseguir com o código
+import pandas as pd #manipulação e tratamento dos dados extraídos
+import re #caracteres nao alfanumericos e prefixos
 
 # inicializa o driver do Selenium
 driver = webdriver.Chrome()
@@ -98,28 +98,20 @@ df = df[~(duplicadas & duplicadas.shift())]
 
 # cria uma função para verificar se no nome possui qualquer caractere nao alfanumerico já definido pela biblioteca re (^\W*)
 # se ouver é para substituir com ''
-
-
 def limpar_nome(nome):
     padrao = r'^\W*'
     return re.sub(padrao, '', nome)
-
-
+    
 # aplica a função na coluna nome
 df['nome'] = df['nome'].apply(limpar_nome)
 
 prefixos = ['Ca', 'Gu', 'Li', 'Na', 'Fer', 'Rod', 'Al', 'We']
 
 # função para remover prefixos no ínicio do nome com a biblioteca re
-
-
 def remover_prefixo(nome):
     padrao = r'^(' + '|'.join(prefixos) + r')\s'
     return re.sub(padrao, '', nome)
 
-
 df['nome'] = df['nome'].apply(remover_prefixo)
-
 df_spotter = df
-
 print(df_spotter)
