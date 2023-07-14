@@ -1,11 +1,11 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
-import pandas as pd
-import re
+from selenium import webdriver 
+from selenium.webdriver.common.keys import Keys #chaves
+from selenium.webdriver.common.by import By #encontrar algo na página html
+from selenium.webdriver.support.ui import WebDriverWait 
+from selenium.webdriver.support import expected_conditions as EC #ExpectedCondition
+# aguardar a ocorrência em determinada condição antes de prosseguir com o código
+import pandas as pd #manipulação e tratamento dos dados extraídos
+import re #caracteres nao alfanumericos e prefixos
 
 # inicializa o driver do Selenium
 driver = webdriver.Chrome()
