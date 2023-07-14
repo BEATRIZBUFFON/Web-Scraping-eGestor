@@ -50,14 +50,12 @@ print(novos_leads)
 rdstation = [float(numero) for numero in rdstation]
 novos_leads = novos_leads[:5].split()[:5]
 
-
 dados = {
     'visitantes': (rdstation[0]),
     'leads': (rdstation[1]),
     'vendas': (rdstation[2]),
     'novos_leads': (novos_leads[0])
 }
-# cria o dataframe
+# cria o dataframe e printa ele
 df = pd.DataFrame(dados, index=[0])
-
 print(df)
