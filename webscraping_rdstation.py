@@ -13,11 +13,11 @@ driver.get('https://app.rdstation.com.br/dashboard')
 
 # encontra a partir do isnpecionar onde está o email e add o email
 email_input = driver.find_element(by='xpath', value='//*[@id="email"]')
-email_input.send_keys('beatriz.buffon@zipline.com.br')
+email_input.send_keys('emailpessoal@empresa.com.br')
 
 # encontra a partir do inspecionar o local da senha e add a senha
 password_input = driver.find_element(by='xpath', value='//*[@id="password"]')
-password_input.send_keys('Pizza2121@')
+password_input.send_keys('suasenha')
 
 # simula pressionamento da tecla enter para enviar as informações
 password_input.send_keys(Keys.RETURN)
