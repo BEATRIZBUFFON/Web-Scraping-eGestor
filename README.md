@@ -4,15 +4,15 @@
 
 O primeiro possui um código mais extenso na parte de encontrar os xpath dos pré-vendedores na página em html. Já o outro possui um código em reduzi em bem menos linhas, usando um loop com o 'range'.
 
-webscraping-spotter-codigo-extenso
+_webscraping-spotter-codigo-extenso_
 
-webscraping-spotter-codigo-limpo
+_webscraping-spotter-codigo-limpo_
 
 **Script de acesso ao RD Station e extração de leads, visitantes, novos leads e vendas:**
 
-webscraping-rdstation
+_webscraping-rdstation_
 
 **Script de acesso ao Blaster e extração dos dados da implementação:**
 
-webscraping-blaster
+_webscraping-blaster_
 
