@@ -53,7 +53,6 @@ dados = {
     'concluidas_agrupado': int(numeros[6])
 }
  
-# cria o dataframe
+# cria o dataframe e printa ele
 df = pd.DataFrame(dados, index=[0])
-
 print(df)
