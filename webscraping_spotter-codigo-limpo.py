@@ -15,7 +15,7 @@ driver.get('https://www.exactsales.com.br/prelogin.html')
 
 # encontra a partir do isnpecionar onde está o email e add o email
 email_input = driver.find_element(by='xpath', value='//*[@id="email"]')
-email_input.send_keys('beatriz.buffon@zipline.com.br')
+email_input.send_keys('emailpessoal@empresa.com.br')
 
 avancar_button = WebDriverWait(driver, 10).until(
     EC.element_to_be_clickable(
@@ -25,7 +25,7 @@ avancar_button.click()
 
 # encontra a partir do inspecionar o local da senha e add a senha
 password_input = driver.find_element(by='xpath', value='//*[@id="Password"]')
-password_input.send_keys('8JSF6O07')
+password_input.send_keys('suasenha')
 
 # simula pressionamento da tecla enter para enviar as informações
 password_input.send_keys(Keys.RETURN)
