@@ -14,11 +14,11 @@ driver = webdriver.Chrome()
 driver.get('http://zipline.fattura.com.br/corrida/')
 
 user_input = driver.find_element(by='xpath', value='//*[@id="loginfat"]')
-user_input.send_keys('beatrizbuffon')
+user_input.send_keys('usuario')
 
 # encontra a partir do inspecionar o local da senha e add a senha
 password_input = driver.find_element(by='xpath', value='//*[@id="senhafat"]')
-password_input.send_keys('Pizza2121@')
+password_input.send_keys('suasenha')
 
 
 # encontra o botão de 'enter' para acessar e clica
