@@ -15,7 +15,16 @@ _webscraping-spotter-codigo-limpo_
 
 _webscraping-rdstation_
 
-**Script de acesso ao Blaster e extração dos dados da implementação:**
+**Script de acesso ao Blaster e extração dos dados da Implementação:**
 
 _webscraping-blaster_
+
+**Script de acesso ao Fattura e extração dos dados da pontuação do Comercial:**
+
+_webscraping-fattura_
+
+**Script de acesso a Planilha do Luis do Financeiro e extração dos dados de Retenção e Financeiro, referente ao MRR:**
+
+_webscraping-planilha-financeiro_
+
 
