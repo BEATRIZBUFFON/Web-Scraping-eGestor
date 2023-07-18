@@ -25,9 +25,9 @@ _webscraping-fattura.py_
 
 **Script de acesso a Planilha do Luis do Financeiro e extração dos dados de Retenção e Financeiro, referente ao MRR:**
 
-_webscraping-planilha-financeiro.py_
+_gspread-planilha-financeiro.py_
 
-**Capturaas de Tela do Fattura referente aos pontos e a saída de uma parte do código no VScode:**
+**Capturas de Tela do Fattura referente aos pontos e a saída de uma parte do código no VScode:**
 
 Captura de tela de 2023-07-14 17-52-09.png
 
