@@ -13,11 +13,11 @@ driver.get('http://blaster.zipline.com.br/implementacoes/')
 
 # encontra a partir do isnpecionar onde está o email e add o email
 email_input = driver.find_element(by='xpath', value='//*[@id="login_user"]')
-email_input.send_keys('BeatrizBuffon')
+email_input.send_keys('usuario')
 
 # encontra a partir do inspecionar o local da senha e add a senha
 password_input = driver.find_element(by='xpath', value='//*[@id="login_pass"]')
-password_input.send_keys('Pizza2121@')
+password_input.send_keys('suasenha')
 
 # encontra o botão de 'enter' para acessar e clica
 avancar_button = WebDriverWait(driver, 10).until(
