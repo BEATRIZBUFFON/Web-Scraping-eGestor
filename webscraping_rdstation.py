@@ -1,3 +1,5 @@
+# ==================== Bibliotecas utilizadas ========================= #
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -5,38 +7,25 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import pandas as pd
 
-# inicializa o driver do Selenium 
+# ==================== Web scraping ========================= #
+
 driver = webdriver.Chrome()
 
-# abre a página do rdstation
 driver.get('https://app.rdstation.com.br/dashboard')
 
-# encontra a partir do isnpecionar onde está o email e add o email
 email_input = driver.find_element(by='xpath', value='//*[@id="email"]')
-email_input.send_keys('emailpessoal@empresa.com.br')
+email_input.send_keys('email')
 
-# encontra a partir do inspecionar o local da senha e add a senha
 password_input = driver.find_element(by='xpath', value='//*[@id="password"]')
-password_input.send_keys('suasenha')
+password_input.send_keys('senha')
 
-# simula pressionamento da tecla enter para enviar as informações
 password_input.send_keys(Keys.RETURN)
-
-# esperar determinadas condições por um período de tempo -> 10 segundos
 wait = WebDriverWait(driver, 10)
-
-
-# aguarda encontrar elemento com classe CSS "data-block-value" esteja presente na página
-
-# função WebDriverWait = esperar por determinadas condições antes de prosseguir com a execução do código
-# condição presence_of_element_located = espera até que o elemento esteja presente no DOM (modelo de objeto de documento) da página.
-# "data-block-value" encontrado, o objeto element conterá uma referência a esse elemento na página
 
 elements = WebDriverWait(driver, 10).until(
     EC.presence_of_all_elements_located((By.CLASS_NAME, "data-block-value"))
 )
 
-# cria uma lista vazia para armanezar 
 rdstation = []
 for element in elements:
     numero = element.text
@@ -56,6 +45,5 @@ dados = {
     'vendas': (rdstation[2]),
     'novos_leads': (novos_leads[0])
 }
-# cria o dataframe e printa ele
+
 df = pd.DataFrame(dados, index=[0])
-print(df)
