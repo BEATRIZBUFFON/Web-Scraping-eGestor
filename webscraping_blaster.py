@@ -1,3 +1,5 @@
+# ==================== Bibliotecas utilizadas ========================= #
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -5,21 +7,17 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import pandas as pd
 
-# inicializa o driver do Selenium 
-driver = webdriver.Chrome()
+# ==================== Web scraping ========================= #
 
-# abre a página do rdstation
+driver = webdriver.Chrome()
 driver.get('http://blaster.zipline.com.br/implementacoes/')
 
-# encontra a partir do isnpecionar onde está o email e add o email
 email_input = driver.find_element(by='xpath', value='//*[@id="login_user"]')
 email_input.send_keys('usuario')
 
-# encontra a partir do inspecionar o local da senha e add a senha
 password_input = driver.find_element(by='xpath', value='//*[@id="login_pass"]')
-password_input.send_keys('suasenha')
+password_input.send_keys('senha')
 
-# encontra o botão de 'enter' para acessar e clica
 avancar_button = WebDriverWait(driver, 10).until(
     EC.element_to_be_clickable((By.XPATH, '//*[@id="login_btnIn"]'))
 )
@@ -28,7 +26,6 @@ avancar_button.click()
 colunas = ['nome', 'concluidas', 'reagendadas', 
            'nao_quer', 'no_show', 'em_andamento',
            'cliente_contatara', 'concluidas_agrupado', 'total']
-
 
 elements1 = WebDriverWait(driver, 20).until(
     EC.presence_of_all_elements_located((By.XPATH, '//*[@id="divLista"]/table/tbody/tr[1]'))
